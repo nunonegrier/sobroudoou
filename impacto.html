@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="fonte-normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Painel com o impacto das doações: quilos encaminhados, conexões e participantes.">
+  <title>Impacto — Painel de resultados | Sobrou, doou</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="cabecalho">
+    <div class="container cabecalho-interno">
+      <a class="logo" href="index.html">
+        <img src="img/logo.svg" alt="Sobrou, doou" width="136" height="40">
+      </a>
+
+      <nav aria-label="Menu principal">
+        <ul class="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="solucao.html">Solução</a></li>
+          <li><a href="impacto.html" aria-current="page">Impacto</a></li>
+          <li><a href="equipe.html">Equipe</a></li>
+        </ul>
+      </nav>
+
+      <div class="barra-acessibilidade" role="group" aria-label="Acessibilidade">
+        <button type="button" class="botao-acess" id="botao-fonte-menor" aria-label="Diminuir texto">A−</button>
+        <button type="button" class="botao-acess" id="botao-fonte-normal" aria-label="Texto em tamanho normal">A</button>
+        <button type="button" class="botao-acess" id="botao-fonte-maior" aria-label="Aumentar texto">A+</button>
+        <button type="button" class="botao-acess botao-contraste" id="botao-contraste" aria-pressed="false">Alto contraste</button>
+        <p class="visualmente-oculto" id="anuncio-preferencias" aria-live="polite"></p>
+      </div>
+    </div>
+    <p class="aviso-armazenamento" id="aviso-armazenamento" role="status" hidden>Seus dados não serão salvos neste navegador.</p>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+    <section class="secao secao-topo" aria-labelledby="titulo-pagina">
+      <div class="container">
+        <p class="etiqueta">Painel de resultados</p>
+        <h1 id="titulo-pagina">O <span class="marca">impacto</span> das doações</h1>
+        <p>Cada quilo encaminhado é comida que chegou a quem precisa em vez de ir para o aterro.</p>
+        <p class="aviso-simulado">Os números combinam uma base simulada com as ações feitas neste navegador.</p>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-indicadores">
+      <div class="container">
+        <h2 id="titulo-indicadores">Indicadores</h2>
+        <div class="grade-indicadores">
+          <article class="cartao-indicador">
+            <h3>Kg cadastrados</h3>
+            <p class="indicador-numero" id="valor-kg-cadastrados">—</p>
+            <p class="indicador-legenda">Total oferecido pelos estabelecimentos.</p>
+          </article>
+          <article class="cartao-indicador">
+            <h3>Kg encaminhados</h3>
+            <p class="indicador-numero" id="valor-kg-encaminhados">—</p>
+            <p class="indicador-legenda">Reservados e retirados por instituições.</p>
+          </article>
+          <article class="cartao-indicador">
+            <h3>Taxa de aproveitamento</h3>
+            <p class="indicador-numero" id="valor-taxa">—</p>
+            <p class="indicador-legenda">Kg encaminhados ÷ kg cadastrados.</p>
+          </article>
+          <article class="cartao-indicador">
+            <h3>Conexões realizadas</h3>
+            <p class="indicador-numero" id="valor-conexoes">—</p>
+            <p class="indicador-legenda">Doações que encontraram uma instituição.</p>
+          </article>
+          <article class="cartao-indicador">
+            <h3>Estabelecimentos participantes</h3>
+            <p class="indicador-numero" id="valor-estabelecimentos">—</p>
+            <p class="indicador-legenda">Padarias, restaurantes, mercados e hortifrútis.</p>
+          </article>
+          <article class="cartao-indicador">
+            <h3>Instituições participantes</h3>
+            <p class="indicador-numero" id="valor-instituicoes">—</p>
+            <p class="indicador-legenda">ONGs, abrigos, cozinhas e associações.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao-clara" aria-labelledby="titulo-categorias">
+      <div class="container">
+        <h2 id="titulo-categorias">Kg por categoria</h2>
+        <p>Considera os alimentos da vitrine neste navegador.</p>
+        <ul class="lista-categorias" id="lista-categorias"></ul>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-conexoes">
+      <div class="container">
+        <h2 id="titulo-conexoes">Últimas conexões</h2>
+        <div class="tabela-rolagem" tabindex="0" role="region" aria-labelledby="titulo-conexoes">
+          <table class="tabela">
+            <caption>Alimentos reservados e retirados, mais recentes primeiro</caption>
+            <thead>
+              <tr>
+                <th scope="col">Data</th>
+                <th scope="col">Alimento</th>
+                <th scope="col">Kg</th>
+                <th scope="col">Estabelecimento</th>
+                <th scope="col">Instituição</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody id="corpo-conexoes"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao-clara" aria-labelledby="titulo-ods-impacto">
+      <div class="container">
+        <h2 id="titulo-ods-impacto">ODS que acompanhamos</h2>
+        <div class="grade-ods">
+          <article class="cartao-ods cartao-ods-principal">
+            <p class="selo-ods" aria-hidden="true">2</p>
+            <h3>ODS 2 — Fome Zero</h3>
+            <p><strong>Kg encaminhados</strong> e <strong>conexões realizadas</strong>: quanto alimento chegou a quem atende famílias em insegurança alimentar.</p>
+          </article>
+          <article class="cartao-ods">
+            <p class="selo-ods" aria-hidden="true">11</p>
+            <h3>ODS 11 — Cidades sustentáveis</h3>
+            <p><strong>Estabelecimentos</strong> e <strong>instituições participantes</strong>: o tamanho da rede de doação nos bairros.</p>
+          </article>
+          <article class="cartao-ods">
+            <p class="selo-ods" aria-hidden="true">13</p>
+            <h3>ODS 13 — Ação climática</h3>
+            <p><strong>Kg encaminhados</strong>: cada quilo doado é um quilo a menos apodrecendo no aterro e gerando gases.</p>
+          </article>
+          <article class="cartao-ods">
+            <p class="selo-ods" aria-hidden="true">12</p>
+            <h3>ODS 12 — Consumo responsável</h3>
+            <p><strong>Taxa de aproveitamento</strong> e <strong>kg por categoria</strong>: quanto do excedente deixou de ser desperdiçado.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <div class="rodape-grade">
+        <div class="rodape-marca">
+          <img src="img/logo-claro.svg" alt="Sobrou, doou" width="136" height="40">
+          <p class="rodape-frase">Alimento que sobra para um estabelecimento pode fazer diferença para uma instituição.</p>
+        </div>
+        <nav class="rodape-coluna" aria-label="Rodapé">
+          <p class="rodape-titulo">Navegação</p>
+          <ul class="menu-rodape">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="solucao.html">Solução</a></li>
+            <li><a href="impacto.html" aria-current="page">Impacto</a></li>
+            <li><a href="equipe.html">Equipe</a></li>
+          </ul>
+        </nav>
+        <div class="rodape-coluna">
+          <p class="rodape-titulo">Projeto</p>
+          <ul class="menu-rodape">
+            <li><a href="solucao.html#cadastro">Cadastrar excedente</a></li>
+            <li><a href="impacto.html">Painel de impacto</a></li>
+            <li><a href="equipe.html#titulo-integrantes">Integrantes</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="rodape-base">
+        <p class="rodape-status"><span class="ponto" aria-hidden="true"></span> Protótipo acadêmico — FIAP Global Solution 2026/2</p>
+        <p class="rodape-credito">Tema CitizenTech · ODS 2, 11, 13 e 12</p>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="js/dados.js" defer></script>
+  <script src="js/armazenamento.js" defer></script>
+  <script src="js/preferencias.js" defer></script>
+  <script src="js/impacto.js" defer></script>
+</body>
+</html>

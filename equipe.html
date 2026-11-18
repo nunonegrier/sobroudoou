@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="fonte-normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Integrantes do projeto Sobrou, doou — FIAP Global Solution 2026/2.">
+  <title>Equipe | Sobrou, doou</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="cabecalho">
+    <div class="container cabecalho-interno">
+      <a class="logo" href="index.html">
+        <img src="img/logo.svg" alt="Sobrou, doou" width="136" height="40">
+      </a>
+
+      <nav aria-label="Menu principal">
+        <ul class="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="solucao.html">Solução</a></li>
+          <li><a href="impacto.html">Impacto</a></li>
+          <li><a href="equipe.html" aria-current="page">Equipe</a></li>
+        </ul>
+      </nav>
+
+      <div class="barra-acessibilidade" role="group" aria-label="Acessibilidade">
+        <button type="button" class="botao-acess" id="botao-fonte-menor" aria-label="Diminuir texto">A−</button>
+        <button type="button" class="botao-acess" id="botao-fonte-normal" aria-label="Texto em tamanho normal">A</button>
+        <button type="button" class="botao-acess" id="botao-fonte-maior" aria-label="Aumentar texto">A+</button>
+        <button type="button" class="botao-acess botao-contraste" id="botao-contraste" aria-pressed="false">Alto contraste</button>
+        <p class="visualmente-oculto" id="anuncio-preferencias" aria-live="polite"></p>
+      </div>
+    </div>
+    <p class="aviso-armazenamento" id="aviso-armazenamento" role="status" hidden>Seus dados não serão salvos neste navegador.</p>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+    <section class="secao secao-topo" aria-labelledby="titulo-pagina">
+      <div class="container">
+        <p class="etiqueta">FIAP · Global Solution 2026/2</p>
+        <h1 id="titulo-pagina">Nossa <span class="marca">equipe</span></h1>
+        <p>Alunos do 1º ano de Engenharia de Software da FIAP.</p>
+      </div>
+    </section>
+
+    <section class="secao secao-sem-topo" aria-labelledby="titulo-integrantes">
+      <div class="container">
+        <h2 id="titulo-integrantes" class="visualmente-oculto">Integrantes</h2>
+        <div class="grade-equipe">
+          <article class="cartao-equipe">
+            <p class="avatar-iniciais" aria-hidden="true">RF</p>
+            <div class="equipe-info">
+              <h3>Raquel Figueirôa</h3>
+              <p class="equipe-rm">RM 573179</p>
+              <!-- <p class="equipe-funcao">Layout e responsividade</p> -->
+            </div>
+          </article>
+          <article class="cartao-equipe">
+            <p class="avatar-iniciais avatar-alt" aria-hidden="true">NP</p>
+            <div class="equipe-info">
+              <h3>Nuno Pina</h3>
+              <p class="equipe-rm">RM 568822</p>
+              <!-- <p class="equipe-funcao">Simulação em JavaScript</p> -->
+            </div>
+          </article>
+          <article class="cartao-equipe">
+            <p class="avatar-iniciais" aria-hidden="true">LB</p>
+            <div class="equipe-info">
+              <h3>Lucas Benfatti</h3>
+              <p class="equipe-rm">RM 569688</p>
+              <!-- <p class="equipe-funcao">Formulário e acessibilidade</p> -->
+            </div>
+          </article>
+          <article class="cartao-equipe">
+            <p class="avatar-iniciais" aria-hidden="true">CA</p>
+            <div class="equipe-info">
+              <h3>Caio</h3>
+              <p class="equipe-rm">RM 573739</p>
+              <!-- <p class="equipe-funcao">Conteúdo, dados e README</p> -->
+            </div>
+          </article>
+          <article class="cartao-equipe">
+            <p class="avatar-iniciais" aria-hidden="true">PE</p>
+            <div class="equipe-info">
+              <h3>Pedro</h3>
+              <p class="equipe-rm">RM 00000</p>
+            </div>
+          </article>
+          <article class="cartao-equipe cartao-equipe-links">
+            <h3>Vídeo e código</h3>
+            <ul class="lista-links">
+              <li><span>Vídeo pitch</span> <a href="#titulo-pagina">[LINK DO PITCH]</a></li>
+              <li><span>Repositório</span> <a href="#titulo-pagina">[LINK DO GITHUB]</a></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao-bege" aria-labelledby="titulo-porque">
+      <div class="container porque">
+        <p class="etiqueta">O nome</p>
+        <h2 id="titulo-porque">Por que <span class="marca">Sobrou, doou</span></h2>
+        <blockquote class="citacao">
+          <h3>Comida boa não é lixo.</h4>
+          <p>Alimento que sobra para um estabelecimento pode fazer diferença para uma instituição.</p>
+        </blockquote>
+        <p>Escolhemos um nome fácil de memorizar, que cabe numa frase do dia a dia: <b>sobrou, doou.</b> A ideia é facilitar o encontro de quem tem comida sobrando com quem precisa dela.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <div class="rodape-grade">
+        <div class="rodape-marca">
+          <img src="img/logo-claro.svg" alt="Sobrou, doou" width="136" height="40">
+          <p class="rodape-frase">Alimento que sobra para um estabelecimento pode fazer diferença para uma instituição.</p>
+        </div>
+        <nav class="rodape-coluna" aria-label="Rodapé">
+          <p class="rodape-titulo">Navegação</p>
+          <ul class="menu-rodape">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="solucao.html">Solução</a></li>
+            <li><a href="impacto.html">Impacto</a></li>
+            <li><a href="equipe.html" aria-current="page">Equipe</a></li>
+          </ul>
+        </nav>
+        <div class="rodape-coluna">
+          <p class="rodape-titulo">Projeto</p>
+          <ul class="menu-rodape">
+            <li><a href="solucao.html#cadastro">Cadastrar excedente</a></li>
+            <li><a href="impacto.html">Painel de impacto</a></li>
+            <li><a href="equipe.html#titulo-integrantes">Integrantes</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="rodape-base">
+        <p class="rodape-status"><span class="ponto" aria-hidden="true"></span> Protótipo acadêmico — FIAP Global Solution 2026/2</p>
+        <p class="rodape-credito">Tema CitizenTech · ODS 2, 11, 13 e 12</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/dados.js" defer></script>
+  <script src="js/armazenamento.js" defer></script>
+  <script src="js/preferencias.js" defer></script>
+</body>
+</html>

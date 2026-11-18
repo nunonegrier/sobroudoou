@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="fonte-normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Plataforma que conecta estabelecimentos com alimentos excedentes a instituições sociais.">
+  <title>Sobrou, doou — Alimento que sobra vira doação</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="cabecalho">
+    <div class="container cabecalho-interno">
+      <a class="logo" href="index.html">
+        <img src="img/logo.svg" alt="Sobrou, doou" width="136" height="40">
+      </a>
+
+      <nav aria-label="Menu principal">
+        <ul class="menu">
+          <li><a href="index.html" aria-current="page">Início</a></li>
+          <li><a href="solucao.html">Solução</a></li>
+          <li><a href="impacto.html">Impacto</a></li>
+          <li><a href="equipe.html">Equipe</a></li>
+        </ul>
+      </nav>
+
+      <div class="barra-acessibilidade" role="group" aria-label="Acessibilidade">
+        <button type="button" class="botao-acess" id="botao-fonte-menor" aria-label="Diminuir texto">A−</button>
+        <button type="button" class="botao-acess" id="botao-fonte-normal" aria-label="Texto em tamanho normal">A</button>
+        <button type="button" class="botao-acess" id="botao-fonte-maior" aria-label="Aumentar texto">A+</button>
+        <button type="button" class="botao-acess botao-contraste" id="botao-contraste" aria-pressed="false">Alto contraste</button>
+        <p class="visualmente-oculto" id="anuncio-preferencias" aria-live="polite"></p>
+      </div>
+    </div>
+    <p class="aviso-armazenamento" id="aviso-armazenamento" role="status" hidden>Seus dados não serão salvos neste navegador.</p>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+    <section class="hero" aria-labelledby="titulo-hero">
+      <div class="container hero-grade">
+        <div class="hero-texto">
+          <ul class="pilulas pilulas-claras" aria-label="Para quem é">
+            <li>Padarias</li>
+            <li>Restaurantes</li>
+            <li>Mercados</li>
+            <li>Hortifrútis</li>
+          </ul>
+          <h4>Comida boa não é lixo</h4>
+          <h1 id="titulo-hero">Sobrou, doou</h1>
+          <p class="hero-frase">Alimento que sobra para um estabelecimento pode fazer diferença para uma instituição.</p>
+          <div class="hero-acoes">
+            <a class="botao botao-primario" href="solucao.html">Ver alimentos disponíveis</a>
+            <a class="botao botao-claro" href="solucao.html#cadastro">Cadastrar excedente</a>
+          </div>
+        </div>
+
+        <aside class="hero-cartao" aria-label="Destaque">
+          <div class="hero-cartao-foto">
+            <img src="img/panificados.jpg" alt="Pães e baguetes sobre uma bancada" width="600" height="400">
+            <span class="pilula pilula-foto">Vence hoje</span>
+          </div>
+          <p class="hero-cartao-titulo">Sobrou no fim do dia?</p>
+          <p class="hero-cartao-texto">Cadastre em 1 minuto e uma instituição do bairro reserva.</p>
+          <a class="link-seta" href="solucao.html#cadastro">Cadastrar agora</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-problema">
+      <div class="container">
+        <div class="problema-topo">
+          <p class="etiqueta">Contexto</p>
+          <h2 id="titulo-problema">O <span class="marca">problema</span></h2>
+          <p class="declaracao">Todos os dias, padarias, restaurantes, mercados e hortifrútis <span class="suave">jogam fora comida que ainda está boa para comer.</span> Não é falta de vontade: <span class="suave">doar dá trabalho.</span></p>
+        </div>
+
+        <div class="problema-grade">
+          <figure class="foto-cartao">
+            <img src="img/hortifruti.jpg" alt="Caixote com tomates e bananas maduras" width="600" height="400" loading="lazy">
+            <figcaption class="pilula pilula-foto">Hortifrúti</figcaption>
+          </figure>
+          <div class="problema-texto">
+            <p>É preciso achar quem receba, combinar um horário e fazer tudo isso antes de o alimento estragar. Quando o dia acaba, o mais rápido é o lixo.</p>
+            <p>Enquanto isso, ONGs, cozinhas comunitárias e abrigos têm menos comida do que pessoas para atender.</p>
+          </div>
+          <div class="problema-texto">
+            <p><strong>Quem ganha com a solução:</strong> famílias em insegurança alimentar atendidas por instituições sociais.</p>
+            <p><strong>Quem usa a plataforma:</strong> o responsável pelo estabelecimento, que doa, e o coordenador da instituição, que recebe.</p>
+          </div>
+          <figure class="foto-cartao">
+            <img src="img/refeicoes.jpg" alt="Marmitas de arroz e feijão prontas para doação" width="600" height="400" loading="lazy">
+            <figcaption class="pilula pilula-foto">Refeições prontas</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao-bege" aria-labelledby="titulo-numeros">
+      <div class="container">
+        <p class="etiqueta">Dados reais</p>
+        <h2 id="titulo-numeros">Os <span class="marca">números</span></h2>
+        <div class="grade-cartoes">
+          <article class="cartao-info">
+            <p class="numero-grande">1,05 bi t</p>
+            <h3>Desperdício no mundo</h3>
+            <p>1,05 bilhão de toneladas de alimentos desperdiçadas no mundo em 2022; 28% em serviços de alimentação e 12% no varejo.</p>
+            <p class="fonte">Fonte: <a href="https://www.unep.org/" target="_blank" rel="noopener">PNUMA, Food Waste Index Report 2024<span class="visualmente-oculto"> (abre em nova aba)</span></a></p>
+          </article>
+
+          <article class="cartao-info">
+            <p class="numero-grande">27,6%</p>
+            <h3>Fome no Brasil</h3>
+            <p>Cerca de 27,6% dos domicílios brasileiros tinham algum grau de insegurança alimentar em 2023.</p>
+            <p class="fonte">Fonte: <a href="https://www.ibge.gov.br/" target="_blank" rel="noopener">IBGE, PNAD Contínua<span class="visualmente-oculto"> (abre em nova aba)</span></a></p>
+          </article>
+
+          <article class="cartao-info cartao-info-destaque">
+            <p class="numero-grande">Lei 14.016</p>
+            <h3>Doar é permitido</h3>
+            <p>A Lei 14.016/2020 autoriza a doação de excedentes próprios para consumo e protege o doador de boa-fé.</p>
+            <p class="fonte">Fonte: <a href="https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2020/lei/l14016.htm" target="_blank" rel="noopener">Planalto, Lei nº 14.016/2020<span class="visualmente-oculto"> (abre em nova aba)</span></a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-como">
+      <div class="container">
+        <div class="centro">
+          <p class="etiqueta">Nossa proposta</p>
+          <h2 id="titulo-como">Como <span class="marca">funciona</span></h2>
+          <p class="subtitulo">Uma vitrine de excedentes: o estabelecimento cadastra, a instituição reserva e a plataforma registra a conexão e mostra o impacto.</p>
+        </div>
+        <ol class="passos">
+          <li class="passo">
+            <span class="passo-numero" aria-hidden="true">01</span>
+            <svg class="passo-icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 20h32l-3 20a3 3 0 0 1-3 2.5H14A3 3 0 0 1 11 40z"/><path d="M6 20l5-10h26l5 10"/><path d="M24 26v10M19 31h10"/></svg>
+            <h3>Estabelecimento cadastra</h3>
+            <p>Informa o alimento, a quantidade, a validade e o horário de retirada.</p>
+          </li>
+          <li class="passo">
+            <span class="passo-numero" aria-hidden="true">02</span>
+            <svg class="passo-icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 30h8l6 4h10a3 3 0 0 0 0-6h-7"/><path d="M14 30V24l6-3 9 1"/><path d="M42 26l-12 10H18"/><circle cx="32" cy="12" r="5"/></svg>
+            <h3>Instituição reserva</h3>
+            <p>Filtra por bairro, categoria ou validade e clica em "Tenho interesse".</p>
+          </li>
+          <li class="passo">
+            <span class="passo-numero" aria-hidden="true">03</span>
+            <svg class="passo-icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 40c-9-6-15-11-15-18a8 8 0 0 1 15-4 8 8 0 0 1 15 4c0 7-6 12-15 18z"/><path d="M17 24h5l2-4 3 8 2-4h4"/></svg>
+            <h3>Alimento chega a quem precisa</h3>
+            <p>A retirada é confirmada e o impacto aparece no painel.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="secao secao-bege" aria-labelledby="titulo-ods">
+      <div class="container">
+        <p class="etiqueta">Agenda 2030</p>
+        <h2 id="titulo-ods">Objetivos de Desenvolvimento <span class="marca">Sustentável</span></h2>
+        <p class="subtitulo">O projeto contribui para quatro ODS da Agenda 2030 da ONU.</p>
+        <div class="grade-ods">
+          <article class="cartao-ods cartao-ods-principal">
+            <p class="selo-ods" aria-hidden="true">2</p>
+            <p class="ods-etiqueta">Principal</p>
+            <h3>ODS 2 — Fome Zero</h3>
+            <p>Leva alimento bom a instituições que atendem famílias em insegurança alimentar.</p>
+          </article>
+          <article class="cartao-ods">
+            <p class="selo-ods" aria-hidden="true">11</p>
+            <h3>ODS 11 — Cidades e comunidades sustentáveis</h3>
+            <p>Aproxima comércios e instituições do mesmo bairro, fortalecendo a rede local.</p>
+          </article>
+          <article class="cartao-ods">
+            <p class="selo-ods" aria-hidden="true">13</p>
+            <h3>ODS 13 — Ação contra a mudança do clima</h3>
+            <p>Alimento que não vai para o aterro deixa de virar gás de efeito estufa.</p>
+          </article>
+          <article class="cartao-ods">
+            <p class="selo-ods" aria-hidden="true">12</p>
+            <p class="ods-etiqueta ods-etiqueta-complementar">Complementar</p>
+            <h3>ODS 12 — Consumo e produção responsáveis</h3>
+            <p>Ajuda a reduzir o desperdício de alimentos no varejo e nos serviços de alimentação.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-chamada">
+      <div class="container">
+        <div class="chamada">
+          <div class="chamada-texto">
+            <p class="etiqueta">Para estabelecimentos</p>
+            <h2 id="titulo-chamada">Sobrou hoje? Doe antes de fechar.</h2>
+            <p>Cadastre o excedente e escolha o horário de retirada. A instituição vê na hora.</p>
+            <a class="botao botao-escuro" href="solucao.html#cadastro">Cadastrar excedente</a>
+          </div>
+          <img class="chamada-foto" src="img/nao-pereciveis.jpg" alt="Sacos de arroz e feijão com a embalagem externa amassada" width="600" height="400" loading="lazy">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <div class="rodape-grade">
+        <div class="rodape-marca">
+          <img src="img/logo-claro.svg" alt="Sobrou, doou" width="136" height="40">
+          <p class="rodape-frase">Alimento que sobra para um estabelecimento pode fazer diferença para uma instituição.</p>
+        </div>
+        <nav class="rodape-coluna" aria-label="Rodapé">
+          <p class="rodape-titulo">Navegação</p>
+          <ul class="menu-rodape">
+            <li><a href="index.html" aria-current="page">Início</a></li>
+            <li><a href="solucao.html">Solução</a></li>
+            <li><a href="impacto.html">Impacto</a></li>
+            <li><a href="equipe.html">Equipe</a></li>
+          </ul>
+        </nav>
+        <div class="rodape-coluna">
+          <p class="rodape-titulo">Projeto</p>
+          <ul class="menu-rodape">
+            <li><a href="solucao.html#cadastro">Cadastrar excedente</a></li>
+            <li><a href="impacto.html">Painel de impacto</a></li>
+            <li><a href="equipe.html#titulo-integrantes">Integrantes</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="rodape-base">
+        <p class="rodape-status"><span class="ponto" aria-hidden="true"></span> Protótipo acadêmico — FIAP Global Solution 2026/2</p>
+        <p class="rodape-credito">Tema CitizenTech · ODS 2, 11, 13 e 12</p>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="js/dados.js" defer></script>
+  <script src="js/armazenamento.js" defer></script>
+  <script src="js/preferencias.js" defer></script>
+</body>
+</html>

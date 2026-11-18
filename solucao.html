@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="fonte-normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Simulação da vitrine de excedentes: filtre, reserve e cadastre alimentos.">
+  <title>Solução — Vitrine de excedentes | Sobrou, doou</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="cabecalho">
+    <div class="container cabecalho-interno">
+      <a class="logo" href="index.html">
+        <img src="img/logo.svg" alt="Sobrou, doou" width="136" height="40">
+      </a>
+
+      <nav aria-label="Menu principal">
+        <ul class="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="solucao.html" aria-current="page">Solução</a></li>
+          <li><a href="impacto.html">Impacto</a></li>
+          <li><a href="equipe.html">Equipe</a></li>
+        </ul>
+      </nav>
+
+      <div class="barra-acessibilidade" role="group" aria-label="Acessibilidade">
+        <button type="button" class="botao-acess" id="botao-fonte-menor" aria-label="Diminuir texto">A−</button>
+        <button type="button" class="botao-acess" id="botao-fonte-normal" aria-label="Texto em tamanho normal">A</button>
+        <button type="button" class="botao-acess" id="botao-fonte-maior" aria-label="Aumentar texto">A+</button>
+        <button type="button" class="botao-acess botao-contraste" id="botao-contraste" aria-pressed="false">Alto contraste</button>
+        <p class="visualmente-oculto" id="anuncio-preferencias" aria-live="polite"></p>
+      </div>
+    </div>
+    <p class="aviso-armazenamento" id="aviso-armazenamento" role="status" hidden>Seus dados não serão salvos neste navegador.</p>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+    <section class="secao secao-topo" aria-labelledby="titulo-pagina">
+      <div class="container">
+        <p class="etiqueta">Simulação interativa</p>
+        <div class="cabecalho-pagina">
+          <h1 id="titulo-pagina">Solução: a vitrine de <span class="marca">excedentes</span></h1>
+          <p class="cabecalho-pagina-texto">Escolha sua instituição, encontre um alimento e clique em <strong>"Tenho interesse"</strong>. Tem alimento sobrando? <a href="#cadastro">Cadastre um excedente</a>.</p>
+        </div>
+        
+        <h2 class="visualmente-oculto">Resumo de agora</h2>
+        <ul class="indicadores-rapidos">
+          <li class="indicador-rapido">
+            <span class="indicador-valor" id="indicador-kg">0 kg</span>
+            <span class="indicador-rotulo">disponíveis agora</span>
+          </li>
+          <li class="indicador-rapido">
+            <span class="indicador-valor" id="indicador-itens">0</span>
+            <span class="indicador-rotulo">itens disponíveis</span>
+          </li>
+          <li class="indicador-rapido">
+            <span class="indicador-valor" id="indicador-conexoes">0</span>
+            <span class="indicador-rotulo">conexões realizadas</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-vitrine">
+      <div class="container">
+        <h2 id="titulo-vitrine">Alimentos para doação</h2>
+        
+        <div class="caixa-instituicao">
+          <label for="instituicao-atual">Sua instituição</label>
+          <select id="instituicao-atual" name="instituicao-atual"></select>
+          <p class="dica">Necessário para reservar. A escolha fica salva neste navegador.</p>
+        </div>
+        
+        <form class="filtros" id="form-filtros" role="search" aria-label="Filtrar alimentos">
+          <div class="campo campo-busca">
+            <label for="filtro-busca">Buscar</label>
+            <input type="search" id="filtro-busca" name="busca" placeholder="Alimento ou estabelecimento" autocomplete="off">
+          </div>
+          <div class="campo">
+            <label for="filtro-categoria">Categoria</label>
+            <select id="filtro-categoria" name="categoria"></select>
+          </div>
+          <div class="campo">
+            <label for="filtro-bairro">Bairro</label>
+            <select id="filtro-bairro" name="bairro"></select>
+          </div>
+          <div class="campo">
+            <label for="filtro-status">Status</label>
+            <select id="filtro-status" name="status">
+              <option value="todos">Todos</option>
+              <option value="disponivel" selected>Disponíveis</option>
+              <option value="reservado">Reservados</option>
+              <option value="retirado">Retirados</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="filtro-validade">Validade</label>
+            <select id="filtro-validade" name="validade">
+              <option value="">Qualquer</option>
+              <option value="hoje">Vence hoje</option>
+              <option value="amanha">Vence até amanhã</option>
+            </select>
+          </div>
+          <div class="campo campo-botao">
+            <button type="button" class="botao botao-secundario" id="botao-limpar-filtros">Limpar filtros</button>
+          </div>
+        </form>
+
+        <p class="contador-resultados" id="contador-resultados" aria-live="polite">0 alimentos encontrados</p>
+
+        <p class="mensagem mensagem-fixa" id="mensagem-vitrine" role="status" aria-live="polite" tabindex="-1" hidden></p>
+
+        <div class="vitrine" id="vitrine"></div>
+      </div>
+    </section>
+
+    <section class="secao secao-cadastro" id="cadastro" aria-labelledby="titulo-cadastro">
+      <div class="container">
+        <div class="cadastro-topo">
+          <p class="etiqueta">Para estabelecimentos</p>
+          <h2 id="titulo-cadastro">Cadastrar <span class="marca">excedente</span></h2>
+          <p>Informe o alimento que sobrou. Ele aparece na vitrine na hora.</p>
+        </div>
+
+        <form class="formulario" id="form-cadastro" novalidate>
+          <p class="legenda-obrigatorio"><span aria-hidden="true">*</span> obrigatório</p>
+          <p class="resumo-erros" id="resumo-erros" role="alert" hidden></p>
+
+          <div class="formulario-grade">
+            <div class="campo">
+              <label for="estabelecimento">Nome do estabelecimento <span class="obrigatorio" aria-hidden="true">*</span></label>
+              <input type="text" id="estabelecimento" name="estabelecimento" maxlength="60" autocomplete="organization" required aria-describedby="erro-estabelecimento">
+              <p class="erro-campo" id="erro-estabelecimento"></p>
+            </div>
+
+            <div class="campo">
+              <label for="tipoEstabelecimento">Tipo de estabelecimento <span class="obrigatorio" aria-hidden="true">*</span></label>
+              <select id="tipoEstabelecimento" name="tipoEstabelecimento" required aria-describedby="erro-tipoEstabelecimento"></select>
+              <p class="erro-campo" id="erro-tipoEstabelecimento"></p>
+            </div>
+
+            <div class="campo">
+              <label for="alimento">Alimento <span class="obrigatorio" aria-hidden="true">*</span></label>
+              <input type="text" id="alimento" name="alimento" maxlength="60" required aria-describedby="erro-alimento">
+              <p class="erro-campo" id="erro-alimento"></p>
+            </div>
+
+            <div class="campo">
+              <label for="categoria">Categoria <span class="obrigatorio" aria-hidden="true">*</span></label>
+              <select id="categoria" name="categoria" required aria-describedby="erro-categoria"></select>
+              <p class="erro-campo" id="erro-categoria"></p>
+            </div>
+
+            <div class="campo">
+              <label for="quantidade">Quantidade (kg) <span class="obrigatorio" aria-hidden="true">*</span></label>
+              <input type="number" id="quantidade" name="quantidade" min="0.1" max="1000" step="0.1" inputmode="decimal" required aria-describedby="erro-quantidade">
+              <p class="erro-campo" id="erro-quantidade"></p>
+            </div>
+
+            <div class="campo">
+              <label for="validade">Válido até <span class="obrigatorio" aria-hidden="true">*</span></label>
+              <input type="date" id="validade" name="validade" required aria-describedby="erro-validade">
+              <p class="erro-campo" id="erro-validade"></p>
+            </div>
+
+            <div class="campo">
+              <label for="bairro">Bairro <span class="obrigatorio" aria-hidden="true">*</span></label>
+              <select id="bairro" name="bairro" required aria-describedby="erro-bairro"></select>
+              <p class="erro-campo" id="erro-bairro"></p>
+            </div>
+
+            <div class="campo campo-horarios">
+              <div class="campo">
+                <label for="retiradaInicio">Retirada — início <span class="obrigatorio" aria-hidden="true">*</span></label>
+                <input type="time" id="retiradaInicio" name="retiradaInicio" required aria-describedby="erro-retiradaInicio">
+                <p class="erro-campo" id="erro-retiradaInicio"></p>
+              </div>
+              <div class="campo">
+                <label for="retiradaFim">Retirada — fim <span class="obrigatorio" aria-hidden="true">*</span></label>
+                <input type="time" id="retiradaFim" name="retiradaFim" required aria-describedby="erro-retiradaFim">
+                <p class="erro-campo" id="erro-retiradaFim"></p>
+              </div>
+            </div>
+
+            <div class="campo campo-largo">
+              <label for="observacoes">Observações</label>
+              <textarea id="observacoes" name="observacoes" rows="3" maxlength="200" aria-describedby="contador-observacoes erro-observacoes"></textarea>
+              <p class="contador" id="contador-observacoes">0/200</p>
+              <p class="erro-campo" id="erro-observacoes"></p>
+            </div>
+
+            <div class="campo campo-largo campo-checkbox">
+              <input type="checkbox" id="declaracao" name="declaracao" required aria-describedby="erro-declaracao">
+              <label for="declaracao">Declaro que o alimento está próprio para consumo (Lei 14.016/2020). <span class="obrigatorio" aria-hidden="true">*</span></label>
+              <p class="erro-campo" id="erro-declaracao"></p>
+            </div>
+          </div>
+
+          <button type="submit" class="botao botao-primario">Cadastrar excedente</button>
+
+          <div class="mensagem-formulario">
+            <p class="mensagem-sucesso-texto" id="mensagem-formulario" role="status"></p>
+            <a class="link-ver-novo" id="link-ver-novo" href="#vitrine" hidden>Ver o novo alimento na vitrine</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="secao secao-demo" aria-labelledby="titulo-demo">
+      <div class="container demo-caixa">
+        <h2 id="titulo-demo">Dados de demonstração</h2>
+        <p>Volta a vitrine ao estado inicial: apaga reservas, cadastros e a instituição escolhida neste navegador.</p>
+        <button type="button" class="botao botao-secundario" id="botao-restaurar">Restaurar dados de demonstração</button>
+        <p class="mensagem-sucesso-texto" id="mensagem-restaurar" role="status"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <div class="rodape-grade">
+        <div class="rodape-marca">
+          <img src="img/logo-claro.svg" alt="Sobrou, doou" width="136" height="40">
+          <p class="rodape-frase">Alimento que sobra para um estabelecimento pode fazer diferença para uma instituição.</p>
+        </div>
+        <nav class="rodape-coluna" aria-label="Rodapé">
+          <p class="rodape-titulo">Navegação</p>
+          <ul class="menu-rodape">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="solucao.html" aria-current="page">Solução</a></li>
+            <li><a href="impacto.html">Impacto</a></li>
+            <li><a href="equipe.html">Equipe</a></li>
+          </ul>
+        </nav>
+        <div class="rodape-coluna">
+          <p class="rodape-titulo">Projeto</p>
+          <ul class="menu-rodape">
+            <li><a href="solucao.html#cadastro">Cadastrar excedente</a></li>
+            <li><a href="impacto.html">Painel de impacto</a></li>
+            <li><a href="equipe.html#titulo-integrantes">Integrantes</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="rodape-base">
+        <p class="rodape-status"><span class="ponto" aria-hidden="true"></span> Protótipo acadêmico — FIAP Global Solution 2026/2</p>
+        <p class="rodape-credito">Tema CitizenTech · ODS 2, 11, 13 e 12</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/dados.js" defer></script>
+  <script src="js/armazenamento.js" defer></script>
+  <script src="js/preferencias.js" defer></script>
+  <script src="js/solucao.js" defer></script>
+  <script src="js/formulario.js" defer></script>
+</body>
+</html>
