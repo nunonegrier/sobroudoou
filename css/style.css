@@ -807,24 +807,11 @@ main:focus {
   text-align: center;
 }
 
-.passo-numero {
-  position: absolute;
-  top: 1rem;
-  left: 1.25rem;
-  color: var(--texto-3);
-  font-size: 0.85rem;
-}
-
 .passo-icone {
   display: block;
-  width: 3.25rem;
-  height: 3.25rem;
-  margin: 0.75rem auto 1.25rem;
-  fill: none;
-  stroke: var(--verde-escuro);
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  width: 114px;
+  height: 114px;
+  margin: 0.5rem auto 1.25rem;
 }
 
 .passo h3 {
@@ -2059,10 +2046,6 @@ html.alto-contraste .link-seta::after,
 html.alto-contraste .ponto {
   background-color: #FFE500;
   color: #000000;
-}
-
-html.alto-contraste .passo-icone {
-  stroke: #FFE500;
 }
 
 html.alto-contraste input,
